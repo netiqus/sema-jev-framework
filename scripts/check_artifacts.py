@@ -22,6 +22,11 @@ for archive in archives:
     else:
         with tarfile.open(archive) as item:
             names = item.getnames()
+            launchers = [n for n in names if n.endswith("/dev.sh")]
+            assert len(launchers) == 1, "Source distribution must include the development launcher"
+            launcher = item.extractfile(launchers[0])
+            assert launcher is not None
+            assert launcher.read() == (Path(__file__).resolve().parents[1] / "dev.sh").read_bytes()
             licences = [n for n in names if n.endswith("/LICENSE")]
             assert len(licences) == 1, "Source distribution must include the MIT licence"
             licence = item.extractfile(licences[0])

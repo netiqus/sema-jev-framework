@@ -29,7 +29,7 @@ else:
     print("Request more evidence or a human review")
 ```
 
-**0.2.0a2 · experimental alpha · Python 3.11+ · no runtime dependencies**
+**0.2.0a3 · experimental alpha · Python 3.11+ · no runtime dependencies**
 
 A [netiqus](https://github.com/netiqus) project, licensed under MIT.
 Independent of TypeSafe AI; not affiliated with or endorsed by the makers of Jev.

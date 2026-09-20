@@ -1,4 +1,4 @@
-# Sema Jev Framework 0.2.0a2
+# Sema Jev Framework 0.2.0a3
 
 [🇬🇧 English](release-notes.en.md) · **🇨🇿 Česky**
 

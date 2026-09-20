@@ -29,7 +29,7 @@ else:
     print("Request more evidence or a human review")
 ```
 
-**0.2.0a2 · experimentální alfa · Python 3.11+ · bez běhových závislostí**
+**0.2.0a3 · experimentální alfa · Python 3.11+ · bez běhových závislostí**
 
 Projekt organizace [netiqus](https://github.com/netiqus) pod licencí MIT.
 Jde o nezávislý projekt bez příslušnosti k TypeSafe AI či schválení tvůrci Jev.

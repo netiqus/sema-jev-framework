@@ -2,7 +2,13 @@
 
 **🇬🇧 English** · [🇨🇿 Česky](CHANGELOG.cz.md)
 
-## 0.2.0a2 — 2026-09-20 (public alpha)
+## 0.2.0a3 — 2026-09-20 (public alpha)
+
+- Include `dev.sh` when staging source for a build so the source distribution contains the documented launcher.
+- Verify the launcher's presence and contents in every source archive before releasing.
+- First published alpha; includes the documentation prepared in 0.2.0a2. Gate behaviour and default thresholds are unchanged.
+
+## 0.2.0a2 — 2026-09-20 (release candidate, not published)
 
 - First public source snapshot under netiqus, with a separate public history.
 - Updated project motivation, related approaches, methodology and contribution invitation in English and Czech.

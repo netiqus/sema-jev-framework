@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sema-jev-framework"
-version = "0.2.0a2"
+version = "0.2.0a3"
 description = "Typed semantic gates for Python applications, powered by Jev"
 readme = "README.en.md"
 license = "MIT"

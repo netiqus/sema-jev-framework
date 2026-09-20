@@ -7,7 +7,7 @@ from .policy import ConfigurationError, Policy, Rule
 from .providers import FakeProvider, OpenRouter, TypeSafe
 from .workflow import WorkflowResult, run_until_pass
 
-__version__ = "0.2.0a2"
+__version__ = "0.2.0a3"
 __all__ = [
     "Gate",
     "Policy",

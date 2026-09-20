@@ -11,6 +11,7 @@ from pathlib import Path
 
 SOURCE = Path(__file__).resolve().parent.parent
 SOURCE_FILES = (
+    "dev.sh",
     "pyproject.toml",
     "uv.lock",
     "LICENSE",

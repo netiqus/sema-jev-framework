@@ -2,7 +2,13 @@
 
 [🇬🇧 English](CHANGELOG.en.md) · **🇨🇿 Česky**
 
-## 0.2.0a2 — 2026-09-20 (veřejná alfa)
+## 0.2.0a3 — 2026-09-20 (veřejná alfa)
+
+- Zahrnutí `dev.sh` při přípravě zdrojů pro build, aby zdrojový archiv obsahoval dokumentovaný spouštěč.
+- Kontrola přítomnosti i obsahu spouštěče v každém zdrojovém archivu před vydáním.
+- První publikovaná alfa; obsahuje dokumentaci připravenou v 0.2.0a2. Chování bran a výchozí prahy se nemění.
+
+## 0.2.0a2 — 2026-09-20 (kandidát vydání, nepublikován)
 
 - První veřejný zdrojový snímek pod netiqus s oddělenou veřejnou historií.
 - Aktualizovaný smysl projektu, související přístupy, metodika a pozvánka k přispívání v angličtině a češtině.
