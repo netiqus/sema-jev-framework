@@ -1,0 +1,87 @@
+name: CI Linux
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python: ['3.11', '3.12', '3.13', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Configure isolated runtime
+        shell: bash
+        run: |
+          echo "SEMA_OUT_DIR=${RUNNER_TEMP}/sema-runtime" >> "$GITHUB_ENV"
+          echo "UV_CACHE_DIR=${RUNNER_TEMP}/uv-cache" >> "$GITHUB_ENV"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff
+        with:
+          version: '0.10.2'
+          enable-cache: false
+      - name: Prepare isolated runtime
+        timeout-minutes: 3
+        run: python -B scripts/dev.py sync --python ${{ matrix.python }}
+      - name: Lint and format
+        timeout-minutes: 2
+        run: python -B scripts/dev.py lint --python ${{ matrix.python }}
+      - name: Type checking
+        timeout-minutes: 3
+        run: python -B scripts/dev.py types --python ${{ matrix.python }}
+      - name: Offline tests
+        timeout-minutes: 3
+        run: python -B scripts/dev.py test --python ${{ matrix.python }}
+      - name: Build, inspect and install distributions
+        timeout-minutes: 4
+        run: python -B scripts/dev.py build --python ${{ matrix.python }}
+      - name: Upload verified distributions
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.11'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: distributions
+          path: ${{ runner.temp }}/sema-runtime/artifacts/dist/*
+          if-no-files-found: error
+          retention-days: 7
+
+  public-export:
+    name: Clean public export / Python 3.11
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff
+        with:
+          version: '0.10.2'
+          enable-cache: false
+      - name: Export without private history or project notes
+        run: python -B scripts/public_export.py . "$RUNNER_TEMP/public-source"
+      - name: Verify the standalone exported project
+        run: |
+          export SEMA_OUT_DIR="$RUNNER_TEMP/public-runtime"
+          export UV_CACHE_DIR="$RUNNER_TEMP/uv-cache"
+          python -B "$RUNNER_TEMP/public-source/scripts/dev.py" check

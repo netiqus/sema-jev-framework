@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "news-framing-features",
+  "version": "1",
+  "required_fields": ["article"],
+  "required_checks": [],
+  "rules": [
+    {
+      "id": "welcomes_visit",
+      "kind": "choice",
+      "instructions": "In `article`, does the author explicitly endorse the ceremonial reception and meeting as a welcome political achievement? Evaluate the author's own overall argument, not a quoted politician's opinion. Merely accepting the need to talk while criticising the celebration does not count. Judge wording in the supplied text, not the truth of events or presumed political identity.",
+      "criteria": {
+        "present": "The author personally presents the reception and meeting as a welcome political achievement.",
+        "absent": "The readable article does not endorse that claim in the author's own voice: it criticises or neutrally reports it, or only supports dialogue without endorsing the celebration.",
+        "unclear": "Ambiguous, genuinely mixed authorial positioning or missing context prevents a decision."
+      },
+      "accept": ["present"], "reject": ["absent"], "min_probability": 0.85, "min_confidence": 0.6
+    },
+    {
+      "id": "rights_and_oversight",
+      "kind": "choice",
+      "instructions": "In `article`, does the author positively advocate civil rights, pluralism and independent institutional scrutiny as necessary constraints on political leaders? Look for an endorsed argument about parliamentary oversight, press freedom or the right to challenge power. A passing reference to a hearing or a quoted advocate is not enough. Criticism of one government alone is not evidence of this feature.",
+      "criteria": {
+        "present": "The author personally argues that rights and independent scrutiny are necessary constraints on leaders, including leaders the author might support.",
+        "absent": "The readable article does not make this argument in the author's voice; it may only mention rights, quote someone else, or subordinate scrutiny to a leader's freedom to act.",
+        "unclear": "Ambiguous authorship, genuinely conflicting endorsements or missing context prevents a decision."
+      },
+      "accept": ["present"], "reject": ["absent"], "min_probability": 0.85, "min_confidence": 0.6
+    },
+    {
+      "id": "people_vs_elites",
+      "kind": "choice",
+      "instructions": "In `article`, does the author endorse a moral contrast between authentic ordinary people or a silent majority and a self-serving elite of commentators, institutions or gatekeepers? Economic hardship or criticism of a named official alone is insufficient. A quoted people-versus-elites slogan that the author distances themselves from or rejects does not count as endorsement.",
+      "criteria": {
+        "present": "The author's own argument pits authentic ordinary people against an obstructive, self-serving elite or gatekeeper class.",
+        "absent": "The readable article does not endorse this contrast; references may be neutral, quoted with distancing, explicitly rejected, or limited to specific policy criticism.",
+        "unclear": "Ambiguous authorship, genuinely conflicting endorsements or missing context prevents a decision."
+      },
+      "accept": ["present"], "reject": ["absent"], "min_probability": 0.85, "min_confidence": 0.6
+    },
+    {
+      "id": "leader_over_scrutiny",
+      "kind": "choice",
+      "instructions": "In `article`, does the author argue that a decisive political leader deserves greater freedom from parliamentary, media or civil-society scrutiny because those checks obstruct useful action? Praise for a successful negotiation by itself is not enough. Detect the author's endorsement, not a quoted opponent's statement. This is about the rhetoric in this article, not a claim that the leader is legally above the law.",
+      "criteria": {
+        "present": "The author personally casts scrutiny or critics as obstructive and urges giving the leader room to act with less interference.",
+        "absent": "The readable article does not endorse that argument; it may defend scrutiny, describe events neutrally, or praise leadership without dismissing checks.",
+        "unclear": "Ambiguous authorship, genuinely conflicting endorsements or missing context prevents a decision."
+      },
+      "accept": ["present"], "reject": ["absent"], "min_probability": 0.85, "min_confidence": 0.6
+    },
+    {
+      "id": "authorial_persuasion",
+      "kind": "choice",
+      "instructions": "In `article`, does the author's own voice repeatedly argue for how readers should judge the event using evaluations, recommendations, irony, metaphors or rhetorical contrasts? Opinions confined to clearly attributed quotations do not count. This feature applies equally to liberal, populist and any other viewpoint; it measures commentary rather than factual accuracy or moral quality.",
+      "criteria": {
+        "present": "Repeated authorial evaluations or recommendations make persuasion a substantial part of the article.",
+        "absent": "The article mainly describes or attributes claims without repeated persuasive evaluations in the author's own voice.",
+        "unclear": "Ambiguous authorship or insufficient text prevents a decision."
+      },
+      "accept": ["present"], "reject": ["absent"], "min_probability": 0.85, "min_confidence": 0.6
+    }
+  ]
+}

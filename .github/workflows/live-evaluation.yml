@@ -1,0 +1,48 @@
+name: Optional paid evaluation
+on:
+  workflow_dispatch:
+    inputs:
+      acknowledge_cost:
+        description: Run up to 12 billable synthetic evaluations
+        type: boolean
+        required: true
+        default: false
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    if: inputs.acknowledge_cost && github.ref == 'refs/heads/main'
+    environment: live-evaluation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Configure isolated runtime
+        shell: bash
+        run: |
+          echo "SEMA_OUT_DIR=${RUNNER_TEMP}/sema-runtime" >> "$GITHUB_ENV"
+          echo "UV_CACHE_DIR=${RUNNER_TEMP}/uv-cache" >> "$GITHUB_ENV"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff
+        with:
+          version: '0.10.2'
+          enable-cache: false
+      - name: Install isolated runtime
+        run: python -B scripts/dev.py sync
+      - name: Evaluate synthetic examples
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: cd "$SEMA_OUT_DIR" && .venv/bin/python evals/run.py --live --output artifacts/evaluation.json
+      - name: Upload metadata report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: synthetic-evaluation
+          path: ${{ runner.temp }}/sema-runtime/artifacts/evaluation.json
+          retention-days: 7

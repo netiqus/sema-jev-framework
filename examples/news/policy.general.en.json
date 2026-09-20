@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "visible-rhetoric-experimental",
+  "version": "1",
+  "required_fields": [
+    "article"
+  ],
+  "required_checks": [],
+  "rules": [
+    {
+      "id": "authorial_persuasion",
+      "kind": "choice",
+      "instructions": "In `article`, does the author's own voice repeatedly argue for how readers should judge its subject using evaluations, recommendations, irony, metaphors or rhetorical contrasts? Opinions confined to clearly attributed quotations do not count. This feature measures authorial persuasion in any topic, rather than factual accuracy or moral quality.",
+      "criteria": {
+        "present": "Repeated authorial evaluations or recommendations make persuasion a substantial part of the article.",
+        "absent": "The article mainly describes or attributes claims without repeated persuasive evaluations in the author's own voice.",
+        "unclear": "Ambiguous authorship or insufficient text prevents a decision."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "evaluative_labels",
+      "kind": "choice",
+      "instructions": "In `article`, does the author repeatedly use evaluative labels or emotionally loaded descriptions to praise or condemn people, groups or proposals? Evaluate the author’s own voice, not attributed quotes, a neutral description of harm, or a single ambiguous word.",
+      "criteria": {
+        "present": "Repeated evaluative labels in the author’s own voice invite approval or disapproval beyond describing or attributing events.",
+        "absent": "The article does not repeatedly use such labels in the author’s own voice; they may be absent, neutrally attributed, or only occur in a rejected quote.",
+        "unclear": "Ambiguous authorship, genuinely conflicting signals or insufficient context prevents a decision."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "discrediting_opponents",
+      "kind": "choice",
+      "instructions": "In `article`, does the author endorse dismissing an opposing position by attacking the character, intelligence or presumed bad motives of its supporters instead of addressing their stated argument? Distinguish this rhetorical tactic from specific supported criticism of actions. An attributed accusation the author does not endorse does not count.",
+      "criteria": {
+        "present": "The author uses disparagement or asserted bad motives of opponents as a reason to dismiss their position.",
+        "absent": "The article does not endorse this tactic; criticism addresses actions or arguments, is neutrally attributed, or rejects personal disparagement.",
+        "unclear": "Ambiguous authorship, genuinely conflicting signals or insufficient context prevents a decision."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "us_vs_them",
+      "kind": "choice",
+      "instructions": "In `article`, does the author endorse a moral division between a deserving or authentic in-group and a collectively suspect or inferior out-group? Mere disagreement, comparison of policies, or a quoted division the author rejects does not count. Judge only the supplied wording, without inferring group identity from outside knowledge.",
+      "criteria": {
+        "present": "The author’s own argument endorses a moral us-versus-them division between groups.",
+        "absent": "The readable text does not endorse a moral group division, or only attributes it, rejects it, or compares specific actions or policies.",
+        "unclear": "Ambiguous authorship, genuinely conflicting signals or insufficient context prevents a decision."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    }
+  ]
+}

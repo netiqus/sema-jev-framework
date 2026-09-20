@@ -1,0 +1,103 @@
+{
+  "title": "One visit. Two different stories.",
+  "intro": "Two fictional opinion pieces share an event and its facts. They differ in emphasis and persuasion. We assess observable features of the writing; readers form their own political opinions.",
+  "preview": "SOURCE PREVIEW · no model request was made",
+  "live": "LIVE ASSESSMENT · results and any API errors",
+  "text_language": "Article language",
+  "assessments": "Assessment attempts",
+  "article": "Article",
+  "words": "words",
+  "unknown": "unknown",
+  "present": "present",
+  "absent": "absent",
+  "unclear": "unclear",
+  "pass": "Present",
+  "fail": "Absent",
+  "review": "Review",
+  "not_measured": "Not measured",
+  "commentary_queue": "Route: commentary / opinion",
+  "reporting_queue": "Route: mainly descriptive reporting",
+  "review_queue": "Route: manual review",
+  "read_article": "Read the full article",
+  "input": "Input tokens / estimated cost",
+  "output": "Output tokens / estimated cost",
+  "billed": "API bill — known subtotal",
+  "calculated": "Price-list calculation — known subtotal",
+  "unknown_calls": "with unknown cost",
+  "price_note": "The API bill and the token-based calculation are separate facts. Unknown does not mean zero. Price source, retrieval time, model and request ID:",
+  "legend": "How to read this",
+  "axes": {
+    "welcomes_visit": [
+      "Welcomes the visit",
+      "The author personally welcomes the reception and meeting as a political achievement. Merely accepting the need for talks is not enough."
+    ],
+    "rights_and_oversight": [
+      "Rights and oversight",
+      "The author advocates civil rights and independent scrutiny as necessary constraints on politicians. Merely mentioning parliament is not enough."
+    ],
+    "people_vs_elites": [
+      "People versus elites",
+      "The author pits authentic ordinary people against allegedly detached or self-serving elites. A quoted slogan the author rejects does not count."
+    ],
+    "leader_over_scrutiny": [
+      "Leader over scrutiny",
+      "The author wants greater freedom for a decisive leader and frames scrutiny or critics as obstacles. Praise for negotiation alone is not enough."
+    ],
+    "authorial_persuasion": [
+      "Authorial persuasion",
+      "The author repeatedly evaluates, recommends or uses irony. This can apply to either viewpoint. It does not measure truthfulness."
+    ],
+    "evaluative_labels": [
+      "Evaluative labels",
+      "The author repeatedly uses praise/blame labels in their own voice."
+    ],
+    "discrediting_opponents": [
+      "Discrediting opponents",
+      "The author dismisses a position by disparaging its supporters."
+    ],
+    "us_vs_them": [
+      "Us versus them",
+      "The author endorses a moral division between groups."
+    ]
+  },
+  "threshold_note": "The default thresholds for present / absent are 85% support for that option and 60% confidence. The actual thresholds are shown for each question. Otherwise the result is Review. These are experimental thresholds. Confidence is not measured accuracy; the probabilities describe the model's answer distribution. The preview does not invent measurements.",
+  "limits": "A present feature is not praise, and an absent feature is not a defect. Both supplied texts are opinion pieces. Features can coexist; they are not universal definitions of liberalism or populism. Results do not establish hidden intent, coordination, factual truth or the author's political identity. Queue routing is an illustrative application rule.",
+  "reference_title": "Author's reference key — open after making your own assessment",
+  "reference_note": "Writing intent: A uses a liberal-institutional frame, B a populist frame. Both present an intelligible argument. These are manually prepared expectations and excerpts, not Jev results or explanations. The key is never sent to the model. An excerpt illustrates authorial intent; absence of a feature in particular must be judged from the whole article.",
+  "identical": "Control pair: both inputs are identical. Different model results would call for a stability check, not establish a difference between the texts.",
+  "footer": "Sema Jev Framework · synthetic teaching example · this HTML page makes no API calls. The language link changes the interface, not the loaded articles. The JSON includes source texts and results; keep it in your runtime only.",
+  "thresholds": "Thresholds",
+  "reason": "Decision reason code",
+  "metrics": "Numbers and thresholds",
+  "translation_title": "A side observation: translation as another framing layer",
+  "translation_context": "This example was created to explain the integration and compare writing styles. Independently assessing its English and Czech texts suggested another possible use: comparing an original with a free translation for shifts in emphasis, evaluation or whose opinion is being expressed.",
+  "translation_limits": "A difference can point to passages worth checking. It does not by itself show that a translation changed the framing: language sensitivity and variation between model runs can also affect the scores. This is a follow-up idea from the teaching experiment, not a validated translation check.",
+  "methodology": {
+    "title": "How we designed this assessment",
+    "intro": "The model answers the questions we chose. A result describes those criteria in this text; it is not a universal score of the writer’s bias.",
+    "steps": [
+      "The original visit preset separates endorsement of the visit, advocacy of oversight, people-versus-elites rhetoric, freedom for a leader and authorial persuasion. For another purpose, choose other observable features separately.",
+      "Define present, absent and unclear for each feature. Specify that a quoted view is not automatically the author’s own position. Each complete article is sent separately with the same questions.",
+      "Jev returns an answer distribution and confidence. The application applies the configured probability and confidence thresholds; unclear or insufficient support leads to review.",
+      "The application then uses a chosen feature for routing, or simply compares the feature profiles. No political opinion earns an overall quality grade."
+    ],
+    "scope_title": "What transfers to another topic?",
+    "scope": "Welcoming this visit is specific to the event. Rights/oversight, people versus elites and leader versus scrutiny describe political frames, not bias by themselves. Authorial persuasion is more broadly usable. For a product review, scientific article or another political event, choose and validate the features relevant to that task. These questions cannot reveal omitted facts without additional sources or establish a writer’s hidden motives.",
+    "routing": "Rule used by this report for commentary/reporting routing",
+    "no_routing": "none — compare features only",
+    "exact": "See the exact questions, answer definitions and thresholds",
+    "exact_note": "Below is the verbatim policy for this saved run. Presets are available in English and Czech; switching report language does not translate questions. Earlier runs may use English questions for Czech articles. API identifiers and the common framework instruction remain in English; their complete wording is shown below. The common instruction treats article text as evidence, not commands.",
+    "wire": "Exact questions sent to the provider, including the common instruction",
+    "adapt_title": "How to adapt this to your own text",
+    "adapt": [
+      "Start with the decision you need. Replace “Is this biased?” with a feature you can point to: repeated authorial praise/blame, disparagement of opponents, or an endorsed us-versus-them contrast.",
+      "Define both a positive example and a near miss. An author endorsing a claim differs from reporting it or quoting it critically. A strong opinion alone does not establish factual error.",
+      "Remove event-specific assumptions. If you want stance toward a particular actor or proposal, name that target in the question; the generic feature profile does not identify it automatically.",
+      "Keep the same questions for comparable texts. Include neutral reporting, commentary, irony and attributed quotations in your test set. Hand-label cases before looking at model output.",
+      "Version wording and thresholds, keep a separate evaluation set, and inspect uncertain as well as confident answers. The rhetoric preset is a starting point, not a validated universal method."
+    ]
+  },
+  "profile_ready": "Profile: assessed features",
+  "custom_title": "Two texts. One assessment policy.",
+  "custom_intro": "Each text was assessed separately against the saved questions below. Compare the observed features and uncertainties; the report does not assign an overall bias or truth score."
+}

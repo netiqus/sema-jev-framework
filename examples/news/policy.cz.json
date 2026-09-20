@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "id": "news-framing-features",
+  "version": "1-cz",
+  "required_fields": [
+    "article"
+  ],
+  "required_checks": [],
+  "rules": [
+    {
+      "id": "welcomes_visit",
+      "kind": "choice",
+      "instructions": "V článku `article` autor výslovně podporuje slavnostní přijetí a schůzku jako vítaný politický úspěch? Posuzuj celkovou argumentaci samotného autora, nikoli názor citovaného politika. Pouhé uznání potřeby rozhovorů při současné kritice oslav nestačí. Hodnoť formulace v dodaném textu, nikoli pravdivost událostí ani předpokládanou politickou identitu.",
+      "criteria": {
+        "present": "Autor sám představuje přijetí a schůzku jako vítaný politický úspěch.",
+        "absent": "Srozumitelný článek tento postoj vlastním hlasem autora neobhajuje: kritizuje jej, neutrálně o něm informuje nebo podporuje pouze dialog bez podpory oslav.",
+        "unclear": "Rozhodnutí brání nejednoznačný či skutečně smíšený postoj autora nebo chybějící kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "rights_and_oversight",
+      "kind": "choice",
+      "instructions": "V článku `article` autor obhajuje občanská práva, pluralitu a nezávislou institucionální kontrolu jako nezbytná omezení politických lídrů? Hledej argument, který autor podporuje a který se týká parlamentního dohledu, svobody tisku nebo práva zpochybňovat moc. Letmá zmínka o slyšení či citace zastánce nestačí. Samotná kritika jedné vlády tento znak nedokládá.",
+      "criteria": {
+        "present": "Autor sám obhajuje práva a nezávislou kontrolu jako nezbytná omezení lídrů, včetně těch, které by mohl podporovat.",
+        "absent": "Srozumitelný článek tento argument vlastním hlasem autora nepředkládá; může práva jen zmiňovat, citovat někoho jiného nebo podřizovat kontrolu lídrově volnosti jednat.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku, podpora skutečně protichůdných postojů nebo chybějící kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "people_vs_elites",
+      "kind": "choice",
+      "instructions": "V článku `article` autor přijímá morální protiklad mezi opravdovými obyčejnými lidmi či mlčící většinou a elitou komentátorů, institucí či strážců přístupu, která sleduje vlastní zájmy? Samotné ekonomické potíže nebo kritika konkrétního představitele nestačí. Citované heslo o lidu proti elitám, od kterého se autor distancuje nebo je odmítá, se nepočítá jako souhlas.",
+      "criteria": {
+        "present": "Vlastní argumentace autora staví opravdové obyčejné lidi proti elitě či skupině strážců přístupu, která překáží a sleduje vlastní zájmy.",
+        "absent": "Srozumitelný článek tento protiklad neobhajuje; zmínky mohou být neutrální, citované s odstupem, výslovně odmítnuté nebo omezené na kritiku konkrétní politiky.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku, podpora skutečně protichůdných postojů nebo chybějící kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "leader_over_scrutiny",
+      "kind": "choice",
+      "instructions": "V článku `article` autor tvrdí, že rozhodný politický lídr si zaslouží větší volnost od parlamentní, mediální či občanské kontroly, protože tato kontrola brání užitečnému jednání? Samotná pochvala úspěšného vyjednávání nestačí. Hledej podporu samotného autora, nikoli výrok citovaného oponenta. Jde o rétoriku v tomto článku, nikoli o tvrzení, že lídr právně stojí nad zákonem.",
+      "criteria": {
+        "present": "Autor sám vykresluje kontrolu či kritiky jako překážku a žádá, aby měl lídr prostor jednat s menšími zásahy.",
+        "absent": "Srozumitelný článek tento argument neobhajuje; může hájit kontrolu, neutrálně popisovat události nebo chválit vedení bez odmítání kontrolních mechanismů.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku, podpora skutečně protichůdných postojů nebo chybějící kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "authorial_persuasion",
+      "kind": "choice",
+      "instructions": "V článku `article` autor vlastním hlasem opakovaně prosazuje, jak by čtenáři měli událost hodnotit, pomocí hodnocení, doporučení, ironie, metafor nebo rétorických protikladů? Názory omezené na jasně připsané citace se nepočítají. Tento znak platí stejně pro liberální, populistický i jakýkoli jiný názorový směr; měří komentářový charakter, nikoli faktickou správnost nebo morální kvalitu.",
+      "criteria": {
+        "present": "Opakovaná hodnocení nebo doporučení autora činí z přesvědčování podstatnou součást článku.",
+        "absent": "Článek především popisuje tvrzení nebo je přisuzuje jejich původcům, bez opakovaných přesvědčovacích hodnocení vlastním hlasem autora.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku nebo nedostatečný rozsah textu."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    }
+  ]
+}

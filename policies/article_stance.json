@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "author-stance",
+  "version": "1",
+  "rules": [
+    {
+      "id": "author_support",
+      "instructions": "Does the author of `article` explicitly endorse the described measure? Quoted support by someone else does not count as the author's endorsement. An explicit rejection contradicts the requirement; neutral reporting is insufficient.",
+      "kind": "choice",
+      "criteria": {
+        "supported": "The supplied evidence establishes that the requirement is met.",
+        "contradicted": "The supplied evidence establishes that the requirement is not met.",
+        "insufficient": "The evidence is missing, ambiguous, or insufficient to decide."
+      },
+      "accept": [
+        "supported"
+      ],
+      "reject": [
+        "contradicted"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6,
+      "guidance": ""
+    }
+  ],
+  "required_fields": [
+    "article"
+  ],
+  "required_checks": []
+}

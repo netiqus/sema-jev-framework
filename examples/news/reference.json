@@ -1,0 +1,40 @@
+{
+  "a": {
+    "expected": {"welcomes_visit": "absent", "rights_and_oversight": "present", "people_vs_elites": "absent", "leader_over_scrutiny": "absent", "authorial_persuasion": "present"},
+    "quotes": {
+      "en": {
+        "welcomes_visit": "We should be capable of supporting the first while scrutinising the second.",
+        "rights_and_oversight": "It is a rule that must also inconvenience people we would prefer to support.",
+        "people_vs_elites": "Dividing the country into practical patriots and meddling doubters makes a television argument easier; it makes democratic oversight harder.",
+        "leader_over_scrutiny": "That promise needs published documents, meaningful time for opposition questions and scrutiny by journalists who are not selected for their friendliness.",
+        "authorial_persuasion": "The red carpet at Eastmere airfield was real. So was the absence of a ceasefire."
+      },
+      "cz": {
+        "welcomes_visit": "Měli bychom umět podpořit první a současně zkoumat druhé.",
+        "rights_and_oversight": "Je to pravidlo, které musí znepříjemňovat život i lidem, jimž bychom raději drželi palce.",
+        "people_vs_elites": "Rozdělit zemi na praktické vlastence a všetečné pochybovače usnadňuje televizní hádku; demokratickou kontrolu to ztěžuje.",
+        "leader_over_scrutiny": "K naplnění tohoto slibu jsou potřeba zveřejněné dokumenty, dostatek času na otázky opozice a dohled novinářů, kteří nejsou vybíráni podle vstřícnosti.",
+        "authorial_persuasion": "Červený koberec na letišti Eastmere byl skutečný. Stejně skutečná byla i absence příměří."
+      }
+    }
+  },
+  "b": {
+    "expected": {"welcomes_visit": "present", "rights_and_oversight": "absent", "people_vs_elites": "present", "leader_over_scrutiny": "present", "authorial_persuasion": "present"},
+    "quotes": {
+      "en": {
+        "welcomes_visit": "Vesk chose the more useful course.",
+        "rights_and_oversight": "It should not turn every exploratory sentence into an excuse to haul the negotiators back into another hearing.",
+        "people_vs_elites": "a familiar network of commentators and gatekeepers has grown accustomed to treating its own preferences as the boundary of respectable policy",
+        "leader_over_scrutiny": "Yesterday she chose to lead. For once, the country should let her get on with it.",
+        "authorial_persuasion": "The people demanding a perfect outcome before a handshake would make poor negotiators at a second-hand tractor sale."
+      },
+      "cz": {
+        "welcomes_visit": "Vesk zvolila užitečnější cestu.",
+        "rights_and_oversight": "Nemělo by z každé průzkumné věty dělat záminku k opětovnému předvolání vyjednavačů na další slyšení.",
+        "people_vs_elites": "si známá síť komentátorů a hlídačů přijatelnosti zvykla považovat vlastní preference za hranici slušné politiky",
+        "leader_over_scrutiny": "Včera se rozhodla vést. Pro jednou by ji země měla nechat pracovat.",
+        "authorial_persuasion": "Lidé požadující dokonalý výsledek ještě před podáním ruky by špatně vyjednávali i při koupi ojetého traktoru."
+      }
+    }
+  }
+}

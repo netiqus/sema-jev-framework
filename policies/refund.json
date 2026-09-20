@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "refund",
+  "version": "1",
+  "rules": [
+    {
+      "id": "refund_request",
+      "instructions": "Does `message` explicitly ask for a refund? A denial of wanting a refund contradicts the requirement. A quoted request by someone else alone is insufficient.",
+      "kind": "choice",
+      "criteria": {
+        "supported": "The supplied evidence establishes that the requirement is met.",
+        "contradicted": "The supplied evidence establishes that the requirement is not met.",
+        "insufficient": "The evidence is missing, ambiguous, or insufficient to decide."
+      },
+      "accept": [
+        "supported"
+      ],
+      "reject": [
+        "contradicted"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6,
+      "guidance": ""
+    }
+  ],
+  "required_fields": [
+    "message"
+  ],
+  "required_checks": []
+}

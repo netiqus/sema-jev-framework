@@ -1,0 +1,103 @@
+{
+  "title": "Stejná návštěva. Jiný příběh.",
+  "intro": "Dva fiktivní komentáře sdílejí událost i fakta. Liší se tím, co zdůrazňují a jak přesvědčují. Posuzujeme jednotlivé znaky textu; vlastní politický názor si tvoří čtenář.",
+  "preview": "NÁHLED PODKLADŮ · model nebyl volán",
+  "live": "ŽIVÉ POSOUZENÍ · výsledky a případné chyby API",
+  "text_language": "Jazyk článků",
+  "assessments": "Pokusy o posouzení",
+  "article": "Článek",
+  "words": "slov",
+  "unknown": "nezjištěno",
+  "present": "přítomno",
+  "absent": "nepřítomno",
+  "unclear": "nejasné",
+  "pass": "Přítomno",
+  "fail": "Nepřítomno",
+  "review": "Prověřit",
+  "not_measured": "Neměřeno",
+  "commentary_queue": "Zařazení: komentáře / názory",
+  "reporting_queue": "Zařazení: převážně popisné zpravodajství",
+  "review_queue": "Zařazení: ruční prověření",
+  "read_article": "Přečíst celý článek",
+  "input": "Vstupní tokeny / odhad ceny",
+  "output": "Výstupní tokeny / odhad ceny",
+  "billed": "Účet z API — známý součet",
+  "calculated": "Výpočet dle ceníku — známý součet",
+  "unknown_calls": "s neznámou cenou",
+  "price_note": "Účet z API a výpočet podle tokenů jsou dvě různé informace. Neznámá hodnota není nula. Zdroj ceníku, čas načtení, model a ID požadavku:",
+  "legend": "Jak to číst",
+  "axes": {
+    "welcomes_visit": [
+      "Vítání návštěvy",
+      "Autor sám vítá přijetí hosta a schůzku jako politický úspěch. Pouhé uznání potřeby rozhovorů nestačí."
+    ],
+    "rights_and_oversight": [
+      "Práva a kontrola moci",
+      "Autor obhajuje občanská práva a nezávislý dohled jako potřebná omezení politiků. Samotná zmínka o parlamentu nestačí."
+    ],
+    "people_vs_elites": [
+      "Lid proti elitám",
+      "Autor staví opravdové obyčejné lidi proti údajně odtrženým či sobeckým elitám. Citát, který autor odmítá, se nepočítá."
+    ],
+    "leader_over_scrutiny": [
+      "Lídr před kontrolou",
+      "Autor žádá pro rozhodného lídra větší volnost a vykresluje kontrolu či kritiky jako překážku. Samotná pochvala vyjednávání nestačí."
+    ],
+    "authorial_persuasion": [
+      "Autorské přesvědčování",
+      "Autor opakovaně hodnotí, doporučuje nebo používá ironii. Může to platit pro oba názorové směry. Nejde o měření pravdivosti."
+    ],
+    "evaluative_labels": [
+      "Hodnotící nálepky",
+      "Autor vlastním hlasem opakovaně používá vychvalující či odsuzující nálepky."
+    ],
+    "discrediting_opponents": [
+      "Shazování oponentů",
+      "Autor odmítá stanovisko shazováním jeho zastánců."
+    ],
+    "us_vs_them": [
+      "My versus oni",
+      "Autor přijímá morální dělení mezi skupinami."
+    ]
+  },
+  "threshold_note": "Výchozí prahy pro přítomno / nepřítomno jsou podpora dané možnosti 85 % a confidence 60 %. Skutečné prahy jsou uvedeny u každé otázky. Jinak se zobrazí Prověřit. Jsou to experimentální prahy. Confidence není změřená přesnost; pravděpodobnosti zde představují rozdělení odpovědí modelu. V náhledu nejsou žádná čísla domýšlena.",
+  "limits": "Přítomnost znaku není pochvala a jeho absence není chyba. Oba připravené texty jsou komentáře. Jednotlivé znaky lze kombinovat; nejsou univerzální definicí liberalismu či populismu. Výsledek neprokazuje skrytý úmysl, koordinaci, pravdivost ani politickou identitu autora. Zařazení do fronty je ilustrační pravidlo aplikace.",
+  "reference_title": "Autorský klíč — otevřít až po vlastním posouzení",
+  "reference_note": "Záměr při psaní: A má liberálně institucionální rámování, B populistické rámování. Oba texty mají srozumitelný argument. Níže jsou ručně připravená očekávání a úryvky, nikoli výsledky nebo vysvětlení Jev. Do modelu se tento klíč neposílá. Jedna ukázka ilustruje autorský záměr; zejména nepřítomnost znaku se posuzuje z celého článku.",
+  "identical": "Kontrolní dvojice: oba vstupy jsou totožné. Jejich rozdílné modelové výsledky by byly důvodem pro prověření stability, nikoli důkazem odlišných textů.",
+  "footer": "Sema Jev Framework · syntetická učební ukázka · žádné volání API z této HTML stránky. Jazykové tlačítko mění rozhraní, nikoli jazyk načtených článků. JSON obsahuje podklady i výsledky; uchovávej jej pouze v runtime.",
+  "thresholds": "Prahy",
+  "reason": "Kód důvodu rozhodnutí",
+  "metrics": "Čísla a prahy",
+  "translation_title": "Zajímavost na závěr: překlad jako další vrstva rámování",
+  "translation_context": "Ukázka vznikla pro vysvětlení integrace a porovnání stylů psaní. Při samostatném posouzení anglických a českých textů se nabídl další možný způsob využití: porovnat originál s volným překladem a hledat posun důrazu, hodnocení nebo toho, čí názor text vyjadřuje.",
+  "translation_limits": "Rozdíl může upozornit na pasáže, které stojí za kontrolu. Sám ale nedokazuje, že překlad změnil rámování: hodnoty může ovlivnit i citlivost modelu na jazyk a proměnlivost mezi běhy. Jde o vedlejší námět z učebního experimentu, nikoli ověřenou kontrolu překladu.",
+  "methodology": {
+    "title": "Jak jsme toto hodnocení sestavili",
+    "intro": "Model odpovídá na otázky, které jsme vybrali. Výsledek popisuje tato kritéria v daném textu; není to univerzální skóre zaujatosti pisatele.",
+    "steps": [
+      "Původní předvolba návštěvy odděluje souhlas s návštěvou, obhajobu kontroly moci, rétoriku lidu proti elitám, volnost pro lídra a autorské přesvědčování. Pro jiný účel samostatně vyber jiné pozorovatelné znaky.",
+      "U každého znaku jsme definovali přítomno, nepřítomno a nejasné. Zadání rozlišuje citovaný názor od postoje autora. Každý celý článek se odesílá samostatně se stejnými otázkami.",
+      "Jev vrátí rozdělení odpovědí a confidence. Aplikace uplatní nastavené prahy podpory odpovědi a confidence; nejasná nebo nedostatečně podpořená odpověď vede k prověření.",
+      "Aplikace potom použije zvolený znak pro zařazení, nebo pouze porovná profily znaků. Žádný politický názor nedostává souhrnnou známku kvality."
+    ],
+    "scope_title": "Co lze přenést na jiné téma?",
+    "scope": "Vítání této návštěvy je otázka pro konkrétní událost. Práva a kontrola, lid proti elitám a lídr před kontrolou popisují politické rámce, samy o sobě nikoli zaujatost. Autorské přesvědčování je obecnější. Pro recenzi výrobku, vědecký článek nebo jinou politickou událost je nutné vybrat a ověřit relevantní znaky. Bez dalších zdrojů tyto otázky neodhalí zamlčená fakta ani neprokážou skryté úmysly autora.",
+    "routing": "Otázka použitá tímto reportem pro zařazení mezi komentáře nebo zprávy",
+    "no_routing": "žádná — pouze porovnat znaky",
+    "exact": "Zobrazit přesné otázky, definice odpovědí a prahy",
+    "exact_note": "Níže je doslovné zadání tohoto uloženého běhu. Předvolby jsou dostupné česky i anglicky; změna jazyka reportu otázky nepřekládá. Starší běhy mohou mít anglické otázky i pro české články. Identifikátory API a společný pokyn frameworku zůstávají anglicky; úplné znění je vidět níže. Společný pokyn vymezuje text článku jako podklad, nikoli příkaz.",
+    "wire": "Přesné otázky odeslané poskytovateli včetně společného pokynu",
+    "adapt_title": "Jak zadání přizpůsobit vlastnímu textu",
+    "adapt": [
+      "Začni rozhodnutím, které potřebuješ. Místo „Je to zaujaté?“ vyber doložitelný znak: opakované autorovo vychvalování či odsuzování, shazování oponentů nebo přijatý protiklad my versus oni.",
+      "Definuj pozitivní příklad i podobný případ, který už nepočítáš. Autorův souhlas není totéž jako převyprávění nebo kritická citace. Silný názor sám o sobě nedokazuje faktickou chybu.",
+      "Odstraň předpoklady vázané na konkrétní událost. Pokud chceš postoj vůči určité osobě či návrhu, pojmenuj tento cíl v otázce; obecný profil znaků jej neurčí automaticky.",
+      "Srovnatelné texty posuzuj stejnými otázkami. Do testů zahrň neutrální zprávy, komentáře, ironii a připsané citace. Příklady ručně označ před prohlédnutím odpovědí modelu.",
+      "Verzuj formulace i prahy, ponech nezávislou ověřovací sadu a kontroluj nejisté i jisté odpovědi. Předvolba rétoriky je výchozí návrh, nikoli ověřená univerzální metodika."
+    ]
+  },
+  "profile_ready": "Profil: posouzené znaky",
+  "custom_title": "Dva texty. Stejné hodnoticí zadání.",
+  "custom_intro": "Každý text byl posouzen samostatně podle níže uložených otázek. Porovnej rozpoznané znaky a nejistoty; report neuděluje souhrnné skóre zaujatosti či pravdivosti."
+}

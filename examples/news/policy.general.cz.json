@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "visible-rhetoric-experimental",
+  "version": "1-cz",
+  "required_fields": [
+    "article"
+  ],
+  "required_checks": [],
+  "rules": [
+    {
+      "id": "authorial_persuasion",
+      "kind": "choice",
+      "instructions": "V článku `article` autor vlastním hlasem opakovaně prosazuje, jak by čtenáři měli jeho téma hodnotit, pomocí hodnocení, doporučení, ironie, metafor nebo rétorických protikladů? Názory omezené na jasně připsané citace se nepočítají. Tento znak měří autorské přesvědčování u libovolného tématu, nikoli faktickou správnost nebo morální kvalitu.",
+      "criteria": {
+        "present": "Opakovaná hodnocení nebo doporučení autora činí z přesvědčování podstatnou součást článku.",
+        "absent": "Článek především popisuje tvrzení nebo je přisuzuje jejich původcům, bez opakovaných přesvědčovacích hodnocení vlastním hlasem autora.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku nebo nedostatečný rozsah textu."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "evaluative_labels",
+      "kind": "choice",
+      "instructions": "V článku `article` autor opakovaně používá hodnotící nálepky nebo emocionálně zabarvené popisy k vychvalování či odsuzování lidí, skupin nebo návrhů? Posuzuj vlastní hlas autora, nikoli připsané citace, neutrální popis újmy nebo jediné nejednoznačné slovo.",
+      "criteria": {
+        "present": "Opakované hodnotící nálepky ve vlastním hlasu autora vybízejí ke schválení nebo odsouzení nad rámec popisu událostí či připsání výroků jejich původcům.",
+        "absent": "Článek takové nálepky vlastním hlasem autora opakovaně nepoužívá; mohou chybět, být neutrálně připsané někomu jinému nebo se vyskytovat jen v odmítnutém citátu.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku, skutečně protichůdné signály nebo nedostatečný kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "discrediting_opponents",
+      "kind": "choice",
+      "instructions": "V článku `article` autor podporuje odmítání opačného stanoviska útokem na povahu, inteligenci či údajné špatné úmysly jeho zastánců místo reakce na jejich vyslovený argument? Odliš tuto rétorickou taktiku od konkrétní doložené kritiky jednání. Připsané obvinění, které autor sám nepodporuje, se nepočítá.",
+      "criteria": {
+        "present": "Autor používá shazování oponentů nebo tvrzení o jejich špatných úmyslech jako důvod k odmítnutí jejich stanoviska.",
+        "absent": "Článek tuto taktiku neobhajuje; kritika se týká jednání či argumentů, je neutrálně připsána někomu jinému nebo odmítá osobní shazování.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku, skutečně protichůdné signály nebo nedostatečný kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    },
+    {
+      "id": "us_vs_them",
+      "kind": "choice",
+      "instructions": "V článku `article` autor přijímá morální dělení mezi vlastní skupinou, které přisuzuje zásluhy či opravdovost, a cizí skupinou, kterou jako celek vykresluje jako podezřelou či méněcennou? Pouhý nesouhlas, srovnání politik nebo citované dělení, které autor odmítá, se nepočítá. Posuzuj pouze dodané formulace a neodvozuj identitu skupin z vnějších znalostí.",
+      "criteria": {
+        "present": "Vlastní argumentace autora podporuje morální dělení skupin na my a oni.",
+        "absent": "Srozumitelný text morální dělení skupin neobhajuje, pouze je někomu přisuzuje, odmítá je nebo porovnává konkrétní jednání či politiky.",
+        "unclear": "Rozhodnutí brání nejasné připsání výroku, skutečně protichůdné signály nebo nedostatečný kontext."
+      },
+      "accept": [
+        "present"
+      ],
+      "reject": [
+        "absent"
+      ],
+      "min_probability": 0.85,
+      "min_confidence": 0.6
+    }
+  ]
+}
